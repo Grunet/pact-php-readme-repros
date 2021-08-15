@@ -23,8 +23,8 @@ final class READmeFeedbackTest extends TestCase
         $config->setProvider('someProvider');
         $config->setCors(true);
 
-        $config->setHealthCheckTimeout(20);
-        $config->setHealthCheckRetrySec(2);
+        // $config->setHealthCheckTimeout(20);
+        // $config->setHealthCheckRetrySec(2);
 
         $request = new ConsumerRequest();
         $request
