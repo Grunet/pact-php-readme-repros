@@ -1,0 +1,12 @@
+{
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "pact-foundation/pact-php": "^7.0"
+    },
+    "scripts": {
+        "test": "phpunit test"
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.3"
+    }
+}
