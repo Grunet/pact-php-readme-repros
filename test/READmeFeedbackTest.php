@@ -26,6 +26,16 @@ final class READmeFeedbackTest extends TestCase
         $config->setHealthCheckTimeout(20);
         $config->setHealthCheckRetrySec(2);
 
+        // Instantiate the mock server object with the config. This can be any
+        // instance of MockServerConfigInterface.
+        $server = new MockServer($config);
+
+        // Create the process.
+        $server->start();
+
+        // Stop the process.
+        $server->stop();
+
         $request = new ConsumerRequest();
         $request
             ->setMethod('GET')
@@ -36,13 +46,6 @@ final class READmeFeedbackTest extends TestCase
         $response
             ->setStatus(200)
             ->addHeader('Content-Type', 'application/json');
-
-        // Instantiate the mock server object with the config. This can be any
-        // instance of MockServerConfigInterface.
-        $server = new MockServer($config);
-
-        // Create the process.
-        $server->start();
 
         // Create a configuration that reflects the server that was started. You can
         // create a custom MockServerConfigInterface if needed. This configuration
@@ -62,9 +65,6 @@ final class READmeFeedbackTest extends TestCase
         $response = $client->request('GET', '/get');
 
         $builder->verify();
-
-        // Stop the process.
-        $server->stop();
 
         $this->expectNotToPerformAssertions();
     }
