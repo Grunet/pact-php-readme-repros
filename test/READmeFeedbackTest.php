@@ -21,7 +21,7 @@ final class READmeFeedbackTest extends TestCase
         $config->setPort(7200);
         $config->setConsumer('someConsumer');
         $config->setProvider('someProvider');
-        $config->setCors(true);
+        //$config->setCors(true);
 
         $config->setHealthCheckTimeout(20);
         $config->setHealthCheckRetrySec(2);
